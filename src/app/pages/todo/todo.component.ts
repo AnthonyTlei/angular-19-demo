@@ -4,16 +4,19 @@ import { Todo } from '../../models/todo.type';
 import { catchError } from 'rxjs';
 import { NgIf } from '@angular/common';
 import { TodoItemComponent } from '../../components/todo-item/todo-item.component';
+import { FormsModule } from '@angular/forms';
+import { FilterTodosPipe } from '../../pipes/filter-todos.pipe';
 
 @Component({
   selector: 'app-todo',
-  imports: [NgIf, TodoItemComponent],
+  imports: [NgIf, TodoItemComponent, FormsModule, FilterTodosPipe],
   templateUrl: './todo.component.html',
   styleUrl: './todo.component.scss',
 })
 export class TodoComponent implements OnInit {
   todoService = inject(TodoService);
   todoList = signal<Todo[]>([]);
+  searchTerm = signal('');
 
   ngOnInit(): void {
     this.todoService
