@@ -1,8 +1,4 @@
-<li
-  appHighlightCompletedTodo
-  [isCompleted]="todo().completed"
-  class="todo-list__item"
->
+<li [appHighlightCompletedTodo]="todo().completed" class="todo-list__item">
   <input
     id="todo-list-item__{{ todo().id }}"
     type="checkbox"

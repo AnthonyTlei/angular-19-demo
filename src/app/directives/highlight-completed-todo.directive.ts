@@ -4,7 +4,9 @@ import { Directive, input, effect, inject, ElementRef } from '@angular/core';
   selector: '[appHighlightCompletedTodo]',
 })
 export class HighlightCompletedTodoDirective {
-  isCompleted = input(false);
+  isCompleted = input<boolean>(false, {
+    alias: 'appHighlightCompletedTodo',
+  });
   el = inject(ElementRef);
 
   stylesEffect = effect(() => {
